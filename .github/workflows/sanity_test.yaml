@@ -35,8 +35,8 @@ jobs:
 
       - name: Run training
         run: |
-          python train.py >> report.md 2>&1
-          echo "!--------!!---------!" >> report.md
+          python train.py >> report.md 2>&1 || echo "Training failed with exit code $?" >> report.md
+          echo "!--------!!---------!" >> report.md || echo "Training failed in dashed line with exit code $?" >> report.md
 
       - name: Comment report with CML
         env:
