@@ -11,7 +11,6 @@ class TestModel(unittest.TestCase):
         self.model=load(self.model_path)
         
     def test_data_validation(self):
-        print(f"## Running test for Data Validation")
         # Ensure no missing values
         self.assertFalse(self.ds.drop(columns='species').isnull().values.any(), "Missing values in features")
         self.assertFalse(self.ds['species'].isnull().values.any(), "Missing values in labels")
@@ -20,7 +19,6 @@ class TestModel(unittest.TestCase):
         self.assertEqual(self.ds.drop(columns='species').shape[1], 4, "Expected 4 features")
         
     def test_evaluation(self):
-        print(f"## Running test for Model Evaluation")
         sample = self.ds.drop(columns='species').iloc[0:1]
         result = self.model.predict(sample)
         expected = self.ds['species'].iloc[0]
