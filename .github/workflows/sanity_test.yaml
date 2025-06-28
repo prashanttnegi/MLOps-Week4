@@ -35,7 +35,7 @@ jobs:
 
       - name: Run training
         run: |
-          python train.py > report.md
+          python train.py >> report.md 2>&1
           echo "!--------!!---------!" >> report.md
 
       - name: Comment report with CML
