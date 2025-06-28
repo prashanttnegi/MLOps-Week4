@@ -24,7 +24,7 @@ cm = confusion_matrix(y_test, y_pred, labels=labels)
 
 # Compute confusion matrix
 labels = sorted(y_test.unique())
-cm = confusion_matrix(y_test, y_pred, labels=labels)
+cm = metrics.confusion_matrix(y_test, y_pred, labels=labels)
 
 # Convert to DataFrame for pretty printing
 cm_df = pd.DataFrame(cm, index=labels, columns=labels)
