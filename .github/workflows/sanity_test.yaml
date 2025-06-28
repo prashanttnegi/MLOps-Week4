@@ -31,12 +31,10 @@ jobs:
           echo "## Test Results" >> report.md
           python test.py >> report.md 2>&1
           echo "Tests completed on $(date)" >> report.md
-          echo "!--------!!---------!" >> report.md
 
       - name: Run training
         run: |
           python train.py >> report.md 2>&1 || echo "Training failed with exit code $?" >> report.md
-          echo "!--------!!---------!" >> report.md || echo "Training failed in dashed line with exit code $?" >> report.md
 
       - name: Setup CML
         uses: iterative/setup-cml@v2
